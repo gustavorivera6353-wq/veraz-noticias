@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "titulo": "Abren nueva ciclovía en el centro de la ciudad",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-01",
+    "contenido": "El ayuntamiento inauguró un tramo de ciclovía de tres kilómetros que conecta el centro con el parque principal. Los vecinos podrán usarla desde esta semana."
+  },
+  {
+    "id": 2,
+    "titulo": "Mercado municipal estrena horario extendido",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-02",
+    "contenido": "Los locatarios del mercado municipal atenderán hasta las ocho de la noche de jueves a sábado, con el fin de recibir a más visitantes."
+  },
+  {
+    "id": 3,
+    "titulo": "Biblioteca pública organiza taller de lectura para jóvenes",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-02",
+    "contenido": "El taller es gratuito y se realizará todos los sábados por la mañana. Las personas interesadas pueden inscribirse en el mostrador de la biblioteca."
+  },
+  {
+    "id": 4,
+    "titulo": "Vecinos limpian el arroyo de la colonia norte",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-03",
+    "contenido": "Más de cincuenta vecinos participaron en una jornada de limpieza y recolectaron varias toneladas de residuos del cauce."
+  },
+  {
+    "id": 5,
+    "titulo": "Reportan baches en la avenida principal tras las lluvias",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-05",
+    "contenido": "Conductores y comerciantes piden al ayuntamiento reparar los baches que aparecieron después de las lluvias de la semana pasada."
+  },
+  {
+    "id": 6,
+    "titulo": "Escuela primaria gana concurso estatal de ciencias",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-05",
+    "contenido": "Un equipo de alumnos de quinto grado presentó un proyecto sobre reutilización de agua de lluvia y obtuvo el primer lugar."
+  },
+  {
+    "id": 7,
+    "titulo": "Anuncian jornada de vacunación para mascotas",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-06",
+    "contenido": "La jornada se realizará el próximo fin de semana en la plaza del barrio. Se pide llevar a las mascotas con correa o en transportadora."
+  },
+  {
+    "id": 8,
+    "titulo": "Feria de emprendedores locales reúne a más de cien negocios",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-07",
+    "contenido": "La feria mostró productos de comida, artesanías y servicios de la zona. Los organizadores esperan repetirla cada mes."
+  },
+  {
+    "id": 9,
+    "titulo": "Cambian la ruta de un camión urbano por obras en la calle",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-08",
+    "contenido": "Durante dos semanas la ruta tomará calles alternas. Las paradas afectadas tendrán letreros con la nueva ubicación."
+  },
+  {
+    "id": 10,
+    "titulo": "Club de ajedrez abre inscripciones para el torneo de otoño",
+    "autor": "Redacción (dato ficticio)",
+    "fecha": "2026-10-09",
+    "contenido": "El torneo será abierto a todas las edades y se jugará durante tres sábados consecutivos en el centro comunitario."
+  }
+]
