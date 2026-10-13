@@ -2,7 +2,9 @@
 
 Plataforma web de noticias locales verificadas y con contexto (Proyecto II, Universidad de Guadalajara).
 
-## Estado del Sprint 1 (al 09/10/2026, día 5 de 15)
+## Estado del Sprint 1
+- al 07/10/2026, día 3 de 15
+- al 09/10/2026, día 5 de 15
 
 | Tarea | Descripción | Estado |
 |---|---|---|
@@ -21,6 +23,3 @@ Pendiente: T-05, T-09 a T-14.
 ```bash
 npm install
 npm run dev
-```
-
-Después abre la dirección que muestre la terminal (normalmente http://localhost:5173).

@@ -3,8 +3,6 @@ import Header from "./components/Header.jsx";
 import NewsList from "./components/NewsList.jsx";
 import NewsDetail from "./components/NewsDetail.jsx";
 import NewsForm from "./components/NewsForm.jsx";
-// T-04 (en proceso, 25 %): lote propio de noticias ficticias (salida B de IMP-001).
-// Se reemplazará por los datos reales del periodista cuando lleguen.
 import noticias from "./data/noticias.json";
 
 // Sprint 1 - HU-01 (consulta de noticias) y HU-02 (publicación de noticias)
