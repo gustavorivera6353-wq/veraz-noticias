@@ -111,3 +111,22 @@ body {
   color: #b00020;
   font-size: 0.85rem;
 }
+
+.noticia.activa {
+  border-color: #1f3a5f;
+  background: #eef3f9;
+}
+
+.vacio {
+  color: #555;
+  font-style: italic;
+}
+
+.detalle button.secundario {
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #1f3a5f;
+  border: 1px solid #1f3a5f;
+  cursor: pointer;
+}
