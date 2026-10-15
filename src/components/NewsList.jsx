@@ -1,6 +1,10 @@
 // T-02: componente del listado de noticias (terminado)
 // Recibe las noticias por props y avisa cuando el lector elige una.
 export default function NewsList({ noticias, seleccionadaId, onSeleccionar }) {
+  if (noticias.length === 0) {
+    return <p className="vacio">Aún no hay noticias publicadas.</p>;
+  }
+
   return (
     <ul className="lista">
       {noticias.map((n) => (

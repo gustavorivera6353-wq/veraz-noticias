@@ -3,13 +3,17 @@ import Header from "./components/Header.jsx";
 import NewsList from "./components/NewsList.jsx";
 import NewsDetail from "./components/NewsDetail.jsx";
 import NewsForm from "./components/NewsForm.jsx";
+
 import noticias from "./data/noticias.json";
 
+// T-04 (terminado): los datos llegan por el servicio de noticias.
+import { obtenerNoticias } from "./services/noticiasService.js"; 
+
 // Sprint 1 - HU-01 (consulta de noticias) y HU-02 (publicación de noticias)
-// Avance al día 6: listado y vista individual terminados; validaciones en proceso.
-// TODO T-04: usar los mismos datos en el formulario y en las pruebas.
+// Avance al día 7: consulta (HU-01) con datos de prueba; publicación (HU-02) en proceso.
 export default function App() {
   const [seleccionada, setSeleccionada] = useState(null);
+  const noticias = obtenerNoticias();
 
   return (
     <div className="app">
