@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { guardarNoticia } from "../services/noticiasService.js";
 
 // T-06: diseño del formulario de publicación (terminado)
 // T-07: campos para registrar la noticia (terminado)
 // T-08: validaciones básicas del formulario (terminado): título, autor, fecha y contenido.
-// TODO T-09: registrar la noticia (guardarla).
+// T-09 (en proceso, 50 %): al validar, la noticia se guarda con el servicio de noticias.
 // TODO T-10: que la noticia publicada aparezca en el listado.
 function hoy() {
   const d = new Date();
@@ -49,8 +50,8 @@ export default function NewsForm() {
     const nuevos = validar();
     setErrores(nuevos);
     if (Object.keys(nuevos).length > 0) return;
-    // Por ahora solo se muestra en consola; el registro llega con T-09.
-    console.log("Noticia capturada:", datos);
+    guardarNoticia(datos);
+    setDatos({ titulo: "", autor: "", fecha: "", contenido: "" });
   }
 
   return (
