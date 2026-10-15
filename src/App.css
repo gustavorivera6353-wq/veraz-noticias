@@ -130,3 +130,8 @@ body {
   border: 1px solid #1f3a5f;
   cursor: pointer;
 }
+
+.formulario input[aria-invalid="true"],
+.formulario textarea[aria-invalid="true"] {
+  border-color: #b00020;
+}
