@@ -2,24 +2,38 @@
 
 Plataforma web de noticias locales verificadas y con contexto (Proyecto II, Universidad de Guadalajara).
 
-## Estado del Sprint 1
-- al 07/10/2026, día 3 de 15
-- al 09/10/2026, día 5 de 15
+## Estado del Sprint 1 (al 14/10/2026, día 8 de 15)
 
-| Tarea | Descripción | Estado |
-|---|---|---|
-| T-01 | Estructura básica de la página de noticias | Completado |
-| T-02 | Componente del listado de noticias | Completado |
-| T-06 | Diseño del formulario de publicación | Completado |
-| T-07 | Campos para registrar la noticia | Completado |
-| T-03 | Vista individual de una noticia | En progreso (50 %) |
-| T-04 | Integrar datos de prueba con las vistas | En progreso (25 %), con lote propio de noticias ficticias (IMP-001 mitigado) |
-| T-08 | Validaciones básicas del formulario | En progreso (25 %) |
+| Tarea | Descripción | Estado | Evidencia en GitHub |
+|---|---|---|---|
+| T-01 | Estructura básica de la página de noticias | Completado | Commit inicial del repositorio |
+| T-02 | Componente del listado de noticias | Completado | Commit inicial del repositorio |
+| T-06 | Diseño del formulario de publicación | Completado | Commit inicial del repositorio |
+| T-07 | Campos para registrar la noticia | Completado | Commit inicial del repositorio |
+| T-03 | Vista individual de una noticia | Completado (12/10) | Rama `feature/T-03-vista-individual`, PR fusionado a `main` |
+| T-08 | Validaciones básicas del formulario | Completado (12/10) | Rama `feature/T-08-validaciones`, PR fusionado a `main` |
+| T-04 | Integrar datos de prueba con las vistas | Completado (13/10), con lote propio de noticias ficticias (IMP-001 mitigado) | Rama `feature/T-04-integracion-datos`, PR fusionado a `main` |
+| T-09 | Registro de la noticia | En progreso (75 %), guardado temporal en localStorage (IMP-002, opción B) | Rama `feature/T-09-registro-noticia`, PR abierto (borrador) |
+| T-05 | Pruebas del flujo de consulta | En progreso (50 %), casos de prueba ejecutados en `docs/` | Rama `feature/T-05-pruebas-consulta`, PR abierto (borrador) |
+| T-10 | Integrar la publicación con el listado | En progreso (25 %) | Rama `feature/T-10-integracion-listado`, PR abierto (borrador) |
 
-Pendiente: T-05, T-09 a T-14.
+Pendiente: T-11 a T-14.
+
+Regla del equipo: una tarea pasa a "En progreso" cuando tiene su rama con commits, y a "Completado" cuando su rama se fusiona a `main`.
+
+## Backlog Refinement (14/10/2026)
+
+Planeación de los Sprints 2 a 5 revisada con una carga de 16 puntos o menos por Sprint. HU-15 y HU-18 pasan a un posible Sprint 6. El detalle está en el documento del Product Backlog y Sprint 1.
 
 ## Cómo ejecutarlo
 
 ```bash
 npm install
 npm run dev
+```
+
+Después abre la dirección que muestre la terminal (normalmente http://localhost:5173).
+
+## Flujo de trabajo
+
+Cada tarea tiene su rama `feature/T-XX-...` y se integra a `main` mediante Pull Request.
