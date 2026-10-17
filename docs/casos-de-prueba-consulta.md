@@ -1,9 +1,9 @@
 # Casos de prueba: flujo de consulta de noticias (HU-01) - T-05
 
-Responsable de QA: Product Owner. Estado: en progreso (50 %). Última actualización: 14/10/2026.
+Responsable de QA: Product Owner. Estado: en progreso (75 %). Última actualización: 16/10/2026.
 Datos: lote de noticias ficticias de `src/data/noticias.json` (IMP-001, salida B).
 Versión probada: rama `feature/T-04-integracion-datos` (commit "T-04: crear servicio de noticias...").
-Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, 14/10/2026. Sin errores en consola.
+Ejecución: Chromium (Playwright) sobre la compilación de la aplicación (CP-01 a CP-09 el 14/10/2026; CP-10 a CP-12 el 16/10/2026). Sin errores en consola.
 
 | ID | Criterio de aceptación | Pasos | Resultado esperado | Resultado |
 |---|---|---|---|---|
@@ -16,6 +16,8 @@ Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, 14/10
 | CP-07 | Cambiar de noticia | Seleccionar una noticia y luego otra | Solo queda resaltada y visible la última elegida | Pasó |
 | CP-08 | Uso con teclado | Enfocar "Leer noticia" y pulsar Enter | La noticia se abre igual que con el ratón | Pasó |
 | CP-09 | Fecha legible | Abrir una noticia | La fecha aparece con el mes escrito (por ejemplo, "octubre") | Pasó |
-| CP-10 | Listado vacío | Quitar todas las noticias de los datos | Aparece "Aún no hay noticias publicadas." | Pendiente |
+| CP-10 | Listado vacío | Quitar todas las noticias de los datos | Aparece "Aún no hay noticias publicadas." | Pasó |
+| CP-11 | Pantalla pequeña | Abrir la página con un ancho de 375 px | No hay desplazamiento horizontal | Pasó |
+| CP-12 | Orden de teclado | Pulsar Tab al abrir la página | El primer foco llega a un botón "Leer noticia" | Pasó |
 
-Por redactar: pruebas con las noticias publicadas desde el formulario (dependen de T-10) y casos de pantallas pequeñas.
+Por redactar: pruebas con las noticias publicadas desde el formulario (dependen de T-10) y su ejecución final.
