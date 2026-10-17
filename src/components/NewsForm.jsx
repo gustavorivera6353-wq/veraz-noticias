@@ -4,7 +4,8 @@ import { guardarNoticia } from "../services/noticiasService.js";
 // T-06: diseño del formulario de publicación (terminado)
 // T-07: campos para registrar la noticia (terminado)
 // T-08: validaciones básicas del formulario (terminado): título, autor, fecha y contenido.
-// T-09 (en proceso, 50 %): al validar, la noticia se guarda con el servicio de noticias.
+// T-09 (en proceso, 75 %): al validar, la noticia se guarda con el servicio de noticias
+// y se muestra una confirmación o el error de almacenamiento.
 // TODO T-10: que la noticia publicada aparezca en el listado.
 function hoy() {
   const d = new Date();
@@ -21,6 +22,7 @@ export default function NewsForm() {
     contenido: "",
   });
   const [errores, setErrores] = useState({});
+  const [resultado, setResultado] = useState(null); // { tipo: "ok" | "error", texto }
 
   function cambiar(e) {
     setDatos({ ...datos, [e.target.name]: e.target.value });
@@ -50,8 +52,13 @@ export default function NewsForm() {
     const nuevos = validar();
     setErrores(nuevos);
     if (Object.keys(nuevos).length > 0) return;
-    guardarNoticia(datos);
-    setDatos({ titulo: "", autor: "", fecha: "", contenido: "" });
+    try {
+      guardarNoticia(datos);
+      setDatos({ titulo: "", autor: "", fecha: "", contenido: "" });
+      setResultado({ tipo: "ok", texto: "La noticia se guardó correctamente." });
+    } catch (err) {
+      setResultado({ tipo: "error", texto: err.message });
+    }
   }
 
   return (
@@ -105,6 +112,14 @@ export default function NewsForm() {
       </label>
 
       <button type="submit">Publicar</button>
+      {resultado && (
+        <p
+          role={resultado.tipo === "ok" ? "status" : "alert"}
+          className={resultado.tipo === "ok" ? "exito" : "error"}
+        >
+          {resultado.texto}
+        </p>
+      )}
     </form>
   );
 }

@@ -135,3 +135,8 @@ body {
 .formulario textarea[aria-invalid="true"] {
   border-color: #b00020;
 }
+
+.exito {
+  color: #1b5e20;
+  font-size: 0.9rem;
+}

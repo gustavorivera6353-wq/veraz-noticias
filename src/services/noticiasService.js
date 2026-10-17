@@ -13,7 +13,7 @@ export function obtenerNoticiaPorId(id) {
   return obtenerNoticias().find((n) => n.id === id) ?? null;
 }
 
-// T-09 (en proceso, 50 %): registro de la noticia. Decisión de IMP-002 (opción B):
+// T-09 (en proceso, 75 %): registro de la noticia. Decisión de IMP-002 (opción B):
 // guardado temporal en el navegador (localStorage), reemplazable después por la
 // base de datos sin cambiar las vistas, porque todo pasa por este servicio.
 const CLAVE = "veraz-noticias-publicadas";
@@ -36,7 +36,12 @@ export function guardarNoticia(datos) {
     fecha: datos.fecha,
     contenido: datos.contenido.trim(),
   };
-  localStorage.setItem(CLAVE, JSON.stringify([...guardadas, noticia]));
+  try {
+    localStorage.setItem(CLAVE, JSON.stringify([...guardadas, noticia]));
+  } catch {
+    // Almacenamiento lleno o bloqueado por el navegador (por ejemplo, modo privado).
+    throw new Error("No se pudo guardar la noticia en este navegador.");
+  }
   return noticia;
 }
 
@@ -44,5 +49,5 @@ export function obtenerNoticiasGuardadas() {
   return leerGuardadas();
 }
 
-// TODO T-09: mostrar confirmación de guardado y manejar el error de almacenamiento.
+// TODO T-09: pruebas del registro (flujo de publicación, T-11).
 // TODO T-10: que obtenerNoticias() incluya las guardadas y el listado se actualice.
