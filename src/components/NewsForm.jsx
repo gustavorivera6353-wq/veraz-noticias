@@ -4,7 +4,7 @@ import { guardarNoticia } from "../services/noticiasService.js";
 // T-06: diseño del formulario de publicación (terminado)
 // T-07: campos para registrar la noticia (terminado)
 // T-08: validaciones básicas del formulario (terminado): título, autor, fecha y contenido.
-// T-09 (en proceso, 75 %): al validar, la noticia se guarda con el servicio de noticias
+// T-09 (terminado): al validar, la noticia se guarda con el servicio de noticias
 // y se muestra una confirmación o el error de almacenamiento.
 // TODO T-10: que la noticia publicada aparezca en el listado.
 function hoy() {
@@ -26,6 +26,7 @@ export default function NewsForm() {
 
   function cambiar(e) {
     setDatos({ ...datos, [e.target.name]: e.target.value });
+    setResultado(null); // el mensaje de la publicación anterior ya no aplica
   }
 
   function validar() {

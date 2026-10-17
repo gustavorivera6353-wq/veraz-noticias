@@ -16,7 +16,7 @@ export function obtenerNoticiaPorId(id) {
   return obtenerNoticias().find((n) => n.id === id) ?? null;
 }
 
-// T-09 (en proceso, 75 %): registro de la noticia. Decisión de IMP-002 (opción B):
+// T-09 (terminado): registro de la noticia. Decisión de IMP-002 (opción B):
 // guardado temporal en el navegador (localStorage), reemplazable después por la
 // base de datos sin cambiar las vistas, porque todo pasa por este servicio.
 const CLAVE = "veraz-noticias-publicadas";
@@ -52,5 +52,5 @@ export function obtenerNoticiasGuardadas() {
   return leerGuardadas();
 }
 
-// TODO T-09: pruebas del registro (flujo de publicación, T-11).
+// Las pruebas del flujo de publicación se hacen en T-11.
 // TODO T-10: que el listado se actualice al publicar, sin recargar la página.
