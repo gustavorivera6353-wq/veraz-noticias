@@ -10,10 +10,13 @@ import noticias from "./data/noticias.json";
 import { obtenerNoticias } from "./services/noticiasService.js"; 
 
 // Sprint 1 - HU-01 (consulta de noticias) y HU-02 (publicación de noticias)
-// Avance al día 7: consulta (HU-01) con datos de prueba; publicación (HU-02) en proceso.
+// Avance acumulado: consulta (HU-01) con datos de prueba; publicación (HU-02) en proceso.
 export default function App() {
   const [seleccionada, setSeleccionada] = useState(null);
-  const noticias = obtenerNoticias();
+  // T-10 (en proceso, 44 %): el listado vive en el estado para poder refrescarse.
+  const [noticias, setNoticias] = useState(obtenerNoticias);
+  // TODO T-10: que NewsForm llame a onPublicada() después de guardar la noticia.
+  const refrescar = () => setNoticias(obtenerNoticias());
 
   return (
     <div className="app">
@@ -36,7 +39,7 @@ export default function App() {
         </section>
         <section>
           <h2>Publicar una noticia</h2>
-          <NewsForm />
+          <NewsForm onPublicada={refrescar} />
         </section>
       </main>
       <footer className="pie">Veraz Noticias · Proyecto II · Sprint 1</footer>

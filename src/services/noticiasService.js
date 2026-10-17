@@ -5,7 +5,7 @@
 import noticiasPrueba from "../data/noticias.json";
 
 export function obtenerNoticias() {
-  // T-10 (en proceso, 25 %): incluye las noticias publicadas desde el formulario.
+  // T-10 (en proceso, 44 %): incluye las noticias publicadas desde el formulario.
   // Más recientes primero, como se espera en la página principal (HU-01).
   return [...noticiasPrueba, ...obtenerNoticiasGuardadas()].sort((a, b) =>
     b.fecha.localeCompare(a.fecha)
