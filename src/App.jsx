@@ -4,8 +4,6 @@ import NewsList from "./components/NewsList.jsx";
 import NewsDetail from "./components/NewsDetail.jsx";
 import NewsForm from "./components/NewsForm.jsx";
 
-import noticias from "./data/noticias.json";
-
 // T-04 (terminado): los datos llegan por el servicio de noticias.
 import { obtenerNoticias } from "./services/noticiasService.js"; 
 
@@ -13,9 +11,9 @@ import { obtenerNoticias } from "./services/noticiasService.js";
 // Avance acumulado: consulta (HU-01) con datos de prueba; publicación (HU-02) en proceso.
 export default function App() {
   const [seleccionada, setSeleccionada] = useState(null);
-  // T-10 (en proceso, 44 %): el listado vive en el estado para poder refrescarse.
+  // T-10 (en proceso, 75 %): el listado vive en el estado y se refresca al publicar.
   const [noticias, setNoticias] = useState(obtenerNoticias);
-  // TODO T-10: que NewsForm llame a onPublicada() después de guardar la noticia.
+  // NewsForm llama a onPublicada() después de guardar; así la noticia aparece sin recargar.
   const refrescar = () => setNoticias(obtenerNoticias());
 
   return (

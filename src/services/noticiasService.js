@@ -5,7 +5,7 @@
 import noticiasPrueba from "../data/noticias.json";
 
 export function obtenerNoticias() {
-  // T-10 (en proceso, 44 %): incluye las noticias publicadas desde el formulario.
+  // T-10 (en proceso, 75 %): incluye las noticias publicadas desde el formulario.
   // Más recientes primero, como se espera en la página principal (HU-01).
   return [...noticiasPrueba, ...obtenerNoticiasGuardadas()].sort((a, b) =>
     b.fecha.localeCompare(a.fecha)
@@ -53,4 +53,4 @@ export function obtenerNoticiasGuardadas() {
 }
 
 // Las pruebas del flujo de publicación se hacen en T-11.
-// TODO T-10: que el listado se actualice al publicar, sin recargar la página.
+// T-10: el listado se actualiza al publicar (lo hace App al recibir onPublicada del formulario).

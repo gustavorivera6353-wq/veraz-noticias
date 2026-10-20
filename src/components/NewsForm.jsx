@@ -6,7 +6,7 @@ import { guardarNoticia } from "../services/noticiasService.js";
 // T-08: validaciones básicas del formulario (terminado): título, autor, fecha y contenido.
 // T-09 (terminado): al validar, la noticia se guarda con el servicio de noticias
 // y se muestra una confirmación o el error de almacenamiento.
-// TODO T-10: que la noticia publicada aparezca en el listado.
+// T-10 (en proceso, 75 %): al guardar, avisa a App con onPublicada para que el listado se actualice.
 function hoy() {
   const d = new Date();
   const mes = String(d.getMonth() + 1).padStart(2, "0");
@@ -14,7 +14,7 @@ function hoy() {
   return `${d.getFullYear()}-${mes}-${dia}`;
 }
 
-export default function NewsForm() {
+export default function NewsForm({ onPublicada }) {
   const [datos, setDatos] = useState({
     titulo: "",
     autor: "",
@@ -54,9 +54,10 @@ export default function NewsForm() {
     setErrores(nuevos);
     if (Object.keys(nuevos).length > 0) return;
     try {
-      guardarNoticia(datos);
+      const noticia = guardarNoticia(datos);
       setDatos({ titulo: "", autor: "", fecha: "", contenido: "" });
       setResultado({ tipo: "ok", texto: "La noticia se guardó correctamente." });
+      onPublicada?.(noticia);
     } catch (err) {
       setResultado({ tipo: "error", texto: err.message });
     }
