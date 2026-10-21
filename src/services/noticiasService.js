@@ -5,10 +5,11 @@
 import noticiasPrueba from "../data/noticias.json";
 
 export function obtenerNoticias() {
-  // T-10 (en proceso, 75 %): incluye las noticias publicadas desde el formulario.
+  // T-10 (terminado): incluye las noticias publicadas desde el formulario.
   // Más recientes primero, como se espera en la página principal (HU-01).
-  return [...noticiasPrueba, ...obtenerNoticiasGuardadas()].sort((a, b) =>
-    b.fecha.localeCompare(a.fecha)
+  // Si dos noticias tienen la misma fecha, va primero la que se agregó después.
+  return [...noticiasPrueba, ...obtenerNoticiasGuardadas()].sort(
+    (a, b) => b.fecha.localeCompare(a.fecha) || b.id - a.id
   );
 }
 
@@ -53,4 +54,4 @@ export function obtenerNoticiasGuardadas() {
 }
 
 // Las pruebas del flujo de publicación se hacen en T-11.
-// T-10: el listado se actualiza al publicar (lo hace App al recibir onPublicada del formulario).
+// T-10 (terminado): el listado se actualiza al publicar (lo hace App al recibir onPublicada del formulario).

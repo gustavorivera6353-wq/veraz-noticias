@@ -6,7 +6,7 @@ import { guardarNoticia } from "../services/noticiasService.js";
 // T-08: validaciones básicas del formulario (terminado): título, autor, fecha y contenido.
 // T-09 (terminado): al validar, la noticia se guarda con el servicio de noticias
 // y se muestra una confirmación o el error de almacenamiento.
-// T-10 (en proceso, 75 %): al guardar, avisa a App con onPublicada para que el listado se actualice.
+// T-10 (terminado): al guardar, avisa a App con onPublicada para que el listado se actualice.
 function hoy() {
   const d = new Date();
   const mes = String(d.getMonth() + 1).padStart(2, "0");
