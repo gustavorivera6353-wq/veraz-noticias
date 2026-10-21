@@ -1,9 +1,9 @@
 # Casos de prueba: flujo de consulta de noticias (HU-01) - T-05
 
-Responsable de QA: Product Owner. Estado: en progreso (75 %). Última actualización: 16/10/2026.
+Responsable de QA: Product Owner. Estado: terminado (100 %). Última actualización: 20/10/2026.
 Datos: lote de noticias ficticias de `src/data/noticias.json` (IMP-001, salida B).
 Versión probada: rama `feature/T-04-integracion-datos` (commit "T-04: crear servicio de noticias...").
-Ejecución: Chromium (Playwright) sobre la compilación de la aplicación (CP-01 a CP-09 el 14/10/2026; CP-10 a CP-12 el 16/10/2026). Sin errores en consola.
+Ejecución: Chromium (Playwright) sobre la compilación de la aplicación (CP-01 a CP-09 el 14/10/2026; CP-10 a CP-12 el 16/10/2026; CP-13 y CP-14 el 20/10/2026). Sin errores en consola.
 
 | ID | Criterio de aceptación | Pasos | Resultado esperado | Resultado |
 |---|---|---|---|---|
@@ -19,5 +19,7 @@ Ejecución: Chromium (Playwright) sobre la compilación de la aplicación (CP-01
 | CP-10 | Listado vacío | Quitar todas las noticias de los datos | Aparece "Aún no hay noticias publicadas." | Pasó |
 | CP-11 | Pantalla pequeña | Abrir la página con un ancho de 375 px | No hay desplazamiento horizontal | Pasó |
 | CP-12 | Orden de teclado | Pulsar Tab al abrir la página | El primer foco llega a un botón "Leer noticia" | Pasó |
+| CP-13 | Orden con noticias publicadas | Publicar una noticia con fecha intermedia y revisar el listado | Las 11 noticias quedan ordenadas de la más reciente a la más antigua | Pasó |
+| CP-14 | Consultar una noticia publicada | Leer la noticia publicada y pulsar "Volver al listado" | Se muestra su contenido completo y al volver aparece el mensaje "Elige una noticia del listado..." | Pasó |
 
-Por redactar: pruebas con las noticias publicadas desde el formulario (dependen de T-10) y su ejecución final.
+Las pruebas del flujo de publicación están en `docs/casos-de-prueba-publicacion.md` (T-11).
