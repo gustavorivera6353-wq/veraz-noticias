@@ -14,7 +14,12 @@ export default function App() {
   // T-10 (terminado): el listado vive en el estado y se refresca al publicar.
   const [noticias, setNoticias] = useState(obtenerNoticias);
   // NewsForm llama a onPublicada() después de guardar; así la noticia aparece sin recargar.
-  const refrescar = () => setNoticias(obtenerNoticias());
+  // T-12 (en proceso, 13 %): flujo completo; la noticia recién publicada queda abierta
+  // en "Noticia seleccionada" para que el periodista la vea tal como la leerá el lector.
+  const publicada = (noticia) => {
+    setNoticias(obtenerNoticias());
+    setSeleccionada(noticia);
+  };
 
   return (
     <div className="app">
@@ -37,7 +42,7 @@ export default function App() {
         </section>
         <section>
           <h2>Publicar una noticia</h2>
-          <NewsForm onPublicada={refrescar} />
+          <NewsForm onPublicada={publicada} />
         </section>
       </main>
       <footer className="pie">Veraz Noticias · Proyecto II · Sprint 1</footer>
