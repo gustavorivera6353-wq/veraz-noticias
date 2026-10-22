@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./components/Header.jsx";
 import NewsList from "./components/NewsList.jsx";
 import NewsDetail from "./components/NewsDetail.jsx";
 import NewsForm from "./components/NewsForm.jsx";
 
 // T-04 (terminado): los datos llegan por el servicio de noticias.
-import { obtenerNoticias } from "./services/noticiasService.js"; 
+import { obtenerNoticias, obtenerDescartadas } from "./services/noticiasService.js"; 
 
 // Sprint 1 - HU-01 (consulta de noticias) y HU-02 (publicación de noticias)
 // Avance acumulado: consulta (HU-01) con datos de prueba; publicación (HU-02) en proceso.
@@ -13,12 +13,20 @@ export default function App() {
   const [seleccionada, setSeleccionada] = useState(null);
   // T-10 (terminado): el listado vive en el estado y se refresca al publicar.
   const [noticias, setNoticias] = useState(obtenerNoticias);
+  // T-13: cuántas noticias guardadas se omitieron por estar dañadas o incompletas.
+  const [omitidas, setOmitidas] = useState(obtenerDescartadas);
   // NewsForm llama a onPublicada() después de guardar; así la noticia aparece sin recargar.
-  // T-12 (en proceso, 13 %): flujo completo; la noticia recién publicada queda abierta
-  // en "Noticia seleccionada" para que el periodista la vea tal como la leerá el lector.
+  // T-12 (en proceso, 27 %): flujo completo; la noticia recién publicada queda abierta
+  // en "Noticia seleccionada" y la página baja hasta ella (en pantallas pequeñas el
+  // detalle queda lejos del formulario), para que el periodista la vea tal como la leerá el lector.
+  const detalleRef = useRef(null);
   const publicada = (noticia) => {
     setNoticias(obtenerNoticias());
+    setOmitidas(obtenerDescartadas());
     setSeleccionada(noticia);
+    requestAnimationFrame(() =>
+      detalleRef.current?.scrollIntoView({ behavior: "auto", block: "start" })
+    );
   };
 
   return (
@@ -27,13 +35,19 @@ export default function App() {
       <main className="contenido">
         <section>
           <h2>Últimas noticias</h2>
+          {omitidas > 0 && (
+            <p role="status" className="aviso">
+              Se omitieron {omitidas} {omitidas === 1 ? "noticia guardada" : "noticias guardadas"} en
+              este navegador porque estaban dañadas o incompletas.
+            </p>
+          )}
           <NewsList
             noticias={noticias}
             seleccionadaId={seleccionada?.id}
             onSeleccionar={setSeleccionada}
           />
         </section>
-        <section>
+        <section ref={detalleRef}>
           <h2>Noticia seleccionada</h2>
           <NewsDetail
             noticia={seleccionada}
