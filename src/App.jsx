@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./components/Header.jsx";
 import NewsList from "./components/NewsList.jsx";
 import NewsDetail from "./components/NewsDetail.jsx";
@@ -14,11 +14,16 @@ export default function App() {
   // T-10 (terminado): el listado vive en el estado y se refresca al publicar.
   const [noticias, setNoticias] = useState(obtenerNoticias);
   // NewsForm llama a onPublicada() después de guardar; así la noticia aparece sin recargar.
-  // T-12 (en proceso, 13 %): flujo completo; la noticia recién publicada queda abierta
-  // en "Noticia seleccionada" para que el periodista la vea tal como la leerá el lector.
+  // T-12 (en proceso, 27 %): flujo completo; la noticia recién publicada queda abierta
+  // en "Noticia seleccionada" y la página baja hasta ella (en pantallas pequeñas el
+  // detalle queda lejos del formulario), para que el periodista la vea tal como la leerá el lector.
+  const detalleRef = useRef(null);
   const publicada = (noticia) => {
     setNoticias(obtenerNoticias());
     setSeleccionada(noticia);
+    requestAnimationFrame(() =>
+      detalleRef.current?.scrollIntoView({ behavior: "auto", block: "start" })
+    );
   };
 
   return (
@@ -33,7 +38,7 @@ export default function App() {
             onSeleccionar={setSeleccionada}
           />
         </section>
-        <section>
+        <section ref={detalleRef}>
           <h2>Noticia seleccionada</h2>
           <NewsDetail
             noticia={seleccionada}
