@@ -1,8 +1,8 @@
 # Casos de prueba: flujo de publicación de noticias (HU-02) - T-11
 
-Responsable de QA: Product Owner. Estado: en progreso (75 %). Última actualización: 20/10/2026.
-Versión probada: rama `feature/T-10-integracion-listado` (el listado se actualiza al publicar y, con la misma fecha, va primero la noticia más reciente).
-Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, con el navegador limpio al inicio de la prueba. CP-P01 a CP-P06 se ejecutaron el 19/10/2026 y CP-P07 a CP-P10 el 20/10/2026, sin errores en consola.
+Responsable de QA: Product Owner. Estado: terminado (100 %). Última actualización: 21/10/2026.
+Versión probada: CP-P01 a CP-P10 sobre el flujo de publicación con T-10 integrada; CP-P11 y CP-P12 el 21/10/2026 sobre la versión con T-12 (flujo completo) y, después, con la corrección de T-13.
+Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, con el navegador limpio al inicio de la prueba. CP-P01 a CP-P06 el 19/10/2026, CP-P07 a CP-P10 el 20/10/2026 y CP-P11 y CP-P12 el 21/10/2026.
 
 | ID | Criterio de aceptación | Pasos | Resultado esperado | Resultado |
 |---|---|---|---|---|
@@ -16,5 +16,7 @@ Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, con e
 | CP-P08 | El lector puede leer la noticia publicada | Pulsar "Leer noticia" en la noticia nueva | Se muestra el contenido completo | Pasó |
 | CP-P09 | Error de almacenamiento | Bloquear el almacenamiento del navegador y publicar | Aparece "No se pudo guardar la noticia en este navegador." y el listado no cambia | Pasó |
 | CP-P10 | Dos noticias con la misma fecha | Publicar dos noticias seguidas con la misma fecha | Las dos aparecen en el listado, la última publicada primero | Pasó |
+| CP-P11 | Datos guardados dañados | Guardar en el navegador una noticia incompleta (sin fecha) y recargar la página | La página carga las noticias de prueba y avisa cuántas noticias guardadas se omitieron | Falló el 21/10 (página en blanco, error en consola); corregido en T-13 y Pasó al repetirlo el mismo día |
+| CP-P12 | La noticia publicada queda a la vista | En una pantalla de 375 px, publicar una noticia | La noticia aparece abierta en "Noticia seleccionada" y la página baja hasta ella | Pasó |
 
-Por hacer: ejecución final del flujo completo cuando T-12 esté integrada (25 % restante); cualquier falla pasa a T-13 (ver IMP-003).
+Resumen: 12 casos ejecutados. El único fallo (CP-P11) se corrigió en T-13 (ver IMP-003) y se volvió a probar. Queda pendiente repetir la ejecución completa en T-14.
