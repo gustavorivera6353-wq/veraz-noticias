@@ -4,21 +4,47 @@
     "titulo": "Abren nueva ciclovía en el centro de la ciudad",
     "autor": "Redacción (dato ficticio)",
     "fecha": "2026-10-01",
-    "contenido": "El ayuntamiento inauguró un tramo de ciclovía de tres kilómetros que conecta el centro con el parque principal. Los vecinos podrán usarla desde esta semana."
+    "contenido": "El ayuntamiento inauguró un tramo de ciclovía de tres kilómetros que conecta el centro con el parque principal. Los vecinos podrán usarla desde esta semana.",
+    "fuentes": [
+      {
+        "nombre": "Ayuntamiento, Dirección de Movilidad (fuente ficticia)",
+        "url": "https://ejemplo.com/movilidad/ciclovia"
+      },
+      {
+        "nombre": "Asociación de ciclistas urbanos (fuente ficticia)",
+        "url": "https://ejemplo.com/ciclistas"
+      }
+    ]
   },
   {
     "id": 2,
     "titulo": "Mercado municipal estrena horario extendido",
     "autor": "Redacción (dato ficticio)",
     "fecha": "2026-10-02",
-    "contenido": "Los locatarios del mercado municipal atenderán hasta las ocho de la noche de jueves a sábado, con el fin de recibir a más visitantes."
+    "contenido": "Los locatarios del mercado municipal atenderán hasta las ocho de la noche de jueves a sábado, con el fin de recibir a más visitantes.",
+    "fuentes": [
+      {
+        "nombre": "Mercado municipal, comunicado (fuente ficticia)",
+        "url": "https://ejemplo.com/mercado/horario"
+      }
+    ]
   },
   {
     "id": 3,
     "titulo": "Biblioteca pública organiza taller de lectura para jóvenes",
     "autor": "Redacción (dato ficticio)",
     "fecha": "2026-10-02",
-    "contenido": "El taller es gratuito y se realizará todos los sábados por la mañana. Las personas interesadas pueden inscribirse en el mostrador de la biblioteca."
+    "contenido": "El taller es gratuito y se realizará todos los sábados por la mañana. Las personas interesadas pueden inscribirse en el mostrador de la biblioteca.",
+    "fuentes": [
+      {
+        "nombre": "Biblioteca pública, programa de talleres (fuente ficticia)",
+        "url": "https://ejemplo.com/biblioteca/talleres"
+      },
+      {
+        "nombre": "Secretaría de Cultura (fuente ficticia)",
+        "url": "https://ejemplo.com/cultura"
+      }
+    ]
   },
   {
     "id": 4,
@@ -32,7 +58,21 @@
     "titulo": "Reportan baches en la avenida principal tras las lluvias",
     "autor": "Redacción (dato ficticio)",
     "fecha": "2026-10-05",
-    "contenido": "Conductores y comerciantes piden al ayuntamiento reparar los baches que aparecieron después de las lluvias de la semana pasada."
+    "contenido": "Conductores y comerciantes piden al ayuntamiento reparar los baches que aparecieron después de las lluvias de la semana pasada.",
+    "fuentes": [
+      {
+        "nombre": "Dirección de Obras Públicas, reportes ciudadanos (fuente ficticia)",
+        "url": "https://ejemplo.com/obras/reportes"
+      },
+      {
+        "nombre": "Protección Civil, boletín de lluvias (fuente ficticia)",
+        "url": "https://ejemplo.com/proteccion-civil/boletin"
+      },
+      {
+        "nombre": "Vecinos de la avenida principal (fuente ficticia)",
+        "url": "https://ejemplo.com/vecinos"
+      }
+    ]
   },
   {
     "id": 6,
@@ -46,7 +86,13 @@
     "titulo": "Anuncian jornada de vacunación para mascotas",
     "autor": "Redacción (dato ficticio)",
     "fecha": "2026-10-06",
-    "contenido": "La jornada se realizará el próximo fin de semana en la plaza del barrio. Se pide llevar a las mascotas con correa o en transportadora."
+    "contenido": "La jornada se realizará el próximo fin de semana en la plaza del barrio. Se pide llevar a las mascotas con correa o en transportadora.",
+    "fuentes": [
+      {
+        "nombre": "Centro de control animal, aviso (fuente ficticia)",
+        "url": "https://ejemplo.com/salud-animal/jornada"
+      }
+    ]
   },
   {
     "id": 8,
@@ -60,7 +106,13 @@
     "titulo": "Cambian la ruta de un camión urbano por obras en la calle",
     "autor": "Redacción (dato ficticio)",
     "fecha": "2026-10-08",
-    "contenido": "Durante dos semanas la ruta tomará calles alternas. Las paradas afectadas tendrán letreros con la nueva ubicación."
+    "contenido": "Durante dos semanas la ruta tomará calles alternas. Las paradas afectadas tendrán letreros con la nueva ubicación.",
+    "fuentes": [
+      {
+        "nombre": "Dirección de Transporte, aviso de desvíos (fuente ficticia)",
+        "url": "https://ejemplo.com/transporte/desvios"
+      }
+    ]
   },
   {
     "id": 10,
