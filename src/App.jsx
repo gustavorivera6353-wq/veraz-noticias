@@ -8,7 +8,7 @@ import NewsForm from "./components/NewsForm.jsx";
 import { obtenerNoticias, obtenerDescartadas } from "./services/noticiasService.js"; 
 
 // Sprint 1 - HU-01 (consulta de noticias) y HU-02 (publicación de noticias)
-// Avance acumulado: consulta (HU-01) y publicación (HU-02) funcionan de punta a punta; falta la revisión del flujo completo (T-12).
+// Avance acumulado: consulta (HU-01) y publicación (HU-02) funcionan de punta a punta; el flujo completo se revisó en T-12.
 export default function App() {
   const [seleccionada, setSeleccionada] = useState(null);
   // T-10 (terminado): el listado vive en el estado y se refresca al publicar.
@@ -16,7 +16,7 @@ export default function App() {
   // T-13: cuántas noticias guardadas se omitieron por estar dañadas o incompletas.
   const [omitidas, setOmitidas] = useState(obtenerDescartadas);
   // NewsForm llama a onPublicada() después de guardar; así la noticia aparece sin recargar.
-  // T-12 (en proceso, 67 %): flujo completo; la noticia recién publicada queda abierta
+  // T-12 (terminado): flujo completo; la noticia recién publicada queda abierta
   // en "Noticia seleccionada" y la página baja hasta ella (en pantallas pequeñas el
   // detalle queda lejos del formulario), para que el periodista la vea tal como la leerá el lector.
   const detalleRef = useRef(null);
