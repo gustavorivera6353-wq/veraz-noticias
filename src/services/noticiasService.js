@@ -22,16 +22,61 @@ export function obtenerNoticiaPorId(id) {
 // base de datos sin cambiar las vistas, porque todo pasa por este servicio.
 const CLAVE = "veraz-noticias-publicadas";
 
+// T-13 (terminado): error de calidad detectado en T-11 (CP-P11). Si los datos
+// guardados en el navegador estaban dañados o incompletos, la página quedaba en blanco.
+// Ahora se descartan las noticias que no son válidas y se cuenta cuántas fueron,
+// para avisarlo en pantalla. Los datos del navegador no se borran ni al leerlos ni al publicar.
+let descartadas = 0;
+
+function esNoticiaValida(n) {
+  return (
+    n !== null &&
+    typeof n === "object" &&
+    ["titulo", "autor", "contenido"].every(
+      (k) => typeof n[k] === "string" && n[k].trim() !== ""
+    ) &&
+    typeof n.fecha === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(n.fecha) &&
+    Number.isFinite(n.id)
+  );
+}
+
 function leerGuardadas() {
+  descartadas = 0;
+  let datos;
   try {
-    return JSON.parse(localStorage.getItem(CLAVE)) ?? [];
+    datos = JSON.parse(localStorage.getItem(CLAVE)) ?? [];
   } catch {
+    descartadas = 1; // el contenido guardado no se puede leer
     return [];
+  }
+  if (!Array.isArray(datos)) {
+    descartadas = 1;
+    return [];
+  }
+  const validas = datos.filter(esNoticiaValida);
+  descartadas = datos.length - validas.length;
+  return validas;
+}
+
+// Cuántas noticias guardadas se omitieron en la última lectura.
+export function obtenerDescartadas() {
+  return descartadas;
+}
+
+// Lista tal como está guardada, sin descartar nada. Se usa al publicar para no
+// borrar las noticias dañadas (el aviso sigue visible hasta que se resuelvan).
+function leerCrudas() {
+  try {
+    const datos = JSON.parse(localStorage.getItem(CLAVE));
+    return Array.isArray(datos) ? datos : [];
+  } catch {
+    return []; // contenido ilegible: no hay nada que conservar
   }
 }
 
 export function guardarNoticia(datos) {
-  const guardadas = leerGuardadas();
+  const guardadas = leerCrudas();
   const id = Date.now(); // id único suficiente para el almacenamiento temporal
   const noticia = {
     id,
