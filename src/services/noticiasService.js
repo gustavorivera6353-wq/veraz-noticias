@@ -22,10 +22,10 @@ export function obtenerNoticiaPorId(id) {
 // base de datos sin cambiar las vistas, porque todo pasa por este servicio.
 const CLAVE = "veraz-noticias-publicadas";
 
-// T-13 (en proceso, 67 %): error de calidad detectado en T-11 (CP-P11). Si los datos
+// T-13 (terminado): error de calidad detectado en T-11 (CP-P11). Si los datos
 // guardados en el navegador estaban dañados o incompletos, la página quedaba en blanco.
 // Ahora se descartan las noticias que no son válidas y se cuenta cuántas fueron,
-// para avisarlo en pantalla. Los datos del navegador no se borran al leerlos.
+// para avisarlo en pantalla. Los datos del navegador no se borran ni al leerlos ni al publicar.
 let descartadas = 0;
 
 function esNoticiaValida(n) {
@@ -64,9 +64,19 @@ export function obtenerDescartadas() {
   return descartadas;
 }
 
+// Lista tal como está guardada, sin descartar nada. Se usa al publicar para no
+// borrar las noticias dañadas (el aviso sigue visible hasta que se resuelvan).
+function leerCrudas() {
+  try {
+    const datos = JSON.parse(localStorage.getItem(CLAVE));
+    return Array.isArray(datos) ? datos : [];
+  } catch {
+    return []; // contenido ilegible: no hay nada que conservar
+  }
+}
+
 export function guardarNoticia(datos) {
-  // Al publicar se conservan solo las noticias válidas (las dañadas ya se habían omitido).
-  const guardadas = leerGuardadas();
+  const guardadas = leerCrudas();
   const id = Date.now(); // id único suficiente para el almacenamiento temporal
   const noticia = {
     id,
