@@ -122,6 +122,15 @@ body {
   font-style: italic;
 }
 
+/* T-13: aviso de noticias guardadas que se omitieron */
+.aviso {
+  background: #fff8e1;
+  border-left: 4px solid #b26a00;
+  color: #5a3b00;
+  padding: 8px 12px;
+  margin: 0 0 12px;
+}
+
 .detalle button.secundario {
   padding: 6px 14px;
   font-size: 0.95rem;
@@ -139,4 +148,10 @@ body {
 .exito {
   color: #1b5e20;
   font-size: 0.9rem;
+}
+
+/* T-12: el detalle recibe el foco al abrir una noticia */
+.detalle:focus {
+  outline: 2px solid #0b5ed7;
+  outline-offset: 4px;
 }

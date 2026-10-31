@@ -1,8 +1,8 @@
 # Casos de prueba: flujo de publicación de noticias (HU-02) - T-11
 
 Responsable de QA: Product Owner. Estado: terminado (100 %). Última actualización: 21/10/2026.
-Versión probada: CP-P01 a CP-P10 sobre el flujo de publicación con T-10 integrada; CP-P11 y CP-P12 el 21/10/2026 sobre la versión con T-12 (flujo completo) y, después, con la corrección de T-13.
-Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, con el navegador limpio al inicio de la prueba. CP-P01 a CP-P06 el 19/10/2026, CP-P07 a CP-P10 el 20/10/2026 y CP-P11 y CP-P12 el 21/10/2026.
+Versión probada: CP-P01 a CP-P10 sobre el flujo de publicación con T-10 integrada; CP-P11 y CP-P12 el 21/10/2026 sobre la versión con T-12 (flujo completo) y, después, con la corrección de T-13; CP-P13 a CP-P15 el 28/10/2026 con T-12 y T-13 integradas.
+Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, con el navegador limpio al inicio de la prueba. CP-P01 a CP-P06 el 19/10/2026, CP-P07 a CP-P10 el 20/10/2026 y CP-P11 y CP-P12 el 21/10/2026 y CP-P13 a CP-P15 el 28/10/2026.
 
 | ID | Criterio de aceptación | Pasos | Resultado esperado | Resultado |
 |---|---|---|---|---|
@@ -18,5 +18,8 @@ Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, con e
 | CP-P10 | Dos noticias con la misma fecha | Publicar dos noticias seguidas con la misma fecha | Las dos aparecen en el listado, la última publicada primero | Pasó |
 | CP-P11 | Datos guardados dañados | Guardar en el navegador una noticia incompleta (sin fecha) y recargar la página | La página carga las noticias de prueba y avisa cuántas noticias guardadas se omitieron | Falló el 21/10 (página en blanco, error en consola); corregido en T-13 y Pasó al repetirlo el mismo día |
 | CP-P12 | La noticia publicada queda a la vista | En una pantalla de 375 px, publicar una noticia | La noticia aparece abierta en "Noticia seleccionada" y la página baja hasta ella | Pasó |
+| CP-P13 | Noticias válidas y dañadas mezcladas | Guardar en el navegador una noticia válida y dos incompletas (sin fecha) y recargar la página | Se ven las 10 noticias de prueba y la válida (11 tarjetas) y un aviso que dice que se omitieron 2 | Pasó |
+| CP-P14 | Publicar con noticias dañadas guardadas | Con los datos del caso anterior, publicar una noticia válida | La noticia aparece (12 tarjetas), el aviso de 2 omitidas sigue visible y las noticias dañadas no se borran del navegador | Falló el 28/10 (al publicar se borraban las dañadas y el aviso desaparecía sin decir nada); corregido en T-13 y Pasó al repetirlo |
+| CP-P15 | Contenido guardado ilegible | Guardar en el navegador un texto que no es JSON, recargar y publicar una noticia | La página carga con un aviso y la noticia se publica (11 tarjetas) | Pasó |
 
-Resumen: 12 casos ejecutados. El único fallo (CP-P11) se corrigió en T-13 (ver IMP-003) y se volvió a probar. Queda pendiente repetir la ejecución completa en T-14.
+Resumen: 15 casos ejecutados. Los dos fallos (CP-P11 y CP-P14) se corrigieron en T-13 (ver IMP-003) y se volvieron a probar. Queda pendiente repetir la ejecución completa en T-14.
