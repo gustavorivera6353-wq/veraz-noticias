@@ -1,6 +1,6 @@
-# Revisión del incremento del Sprint 1 (T-14) - parcial
+# Revisión del incremento del Sprint 1 (T-14)
 
-Responsables: Scrum Master y Product Owner. Estado: en progreso (75 %). Primera revisión: 22/10/2026. Segunda revisión: 30/10/2026.
+Responsables: Scrum Master y Product Owner. Estado: terminada (100 %). Primera revisión: 22/10/2026. Segunda revisión: 30/10/2026.
 Primera revisión (22/10): versión `main` con las ramas de T-12 y T-13 (todavía en Pull Request en borrador) integradas, compilada y probada en Chromium (Playwright). Datos: lote de noticias ficticias (IMP-001, salida B) y almacenamiento temporal en el navegador (IMP-002, opción B).
 Sprint Goal: que un periodista publique una noticia (HU-02) y que un lector la consulte (HU-01).
 
@@ -29,11 +29,14 @@ Versión revisada: `main` en el commit de la fusión del Pull Request #7, compil
 | Datos guardados dañados y publicación con datos dañados | Cumple | CP-P11, CP-P13, CP-P14 y CP-P15 |
 | Noticia publicada a la vista en 375 px y foco al detalle con teclado | Cumple | CP-P12 y recorrido con Tab y Enter |
 | Datos de fuentes de T-15 | Cumple | CP-F01 a CP-F12 (`node scripts/verificar-fuentes.mjs`) |
-| Página publicada en GitHub Pages | Pendiente | Falta que el Product Owner abra el sitio, publique una noticia de prueba y recargue la página |
+| Página publicada en GitHub Pages | Cumple | El Product Owner abrió https://gustavorivera6353-wq.github.io/veraz-noticias/ el 30/10/2026 y comprobó que se puede publicar una noticia de prueba |
 
 Nota sobre CP-07: la ejecución automática falló porque su orden esperado no tenía en cuenta el desempate de T-10 (con la misma fecha va primero la noticia agregada después); el listado de la aplicación es correcto. Se corrigió el orden esperado de la prueba y CP-07 pasó.
 
-## Pendiente
+## Conclusión
 
-- Verificación en la página publicada (1 h): hacerla con el sitio ya desplegado desde `main`, y cerrar T-14 y su Pull Request.
+El incremento del Sprint 1 (HU-01 y HU-02) funciona en `main` y en la página publicada, y el Sprint Goal se cumple: un periodista publica una noticia y un lector la consulta. T-14 se da por terminada y su Pull Request se fusiona a `main`.
+
+## Pendiente fuera del Sprint 1
+
 - Cambiar el guardado temporal en el navegador por la base de datos real y los datos reales del periodista (IMP-001 e IMP-002).
