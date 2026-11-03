@@ -22,4 +22,4 @@ Ejecución: Chromium (Playwright) sobre la compilación de la aplicación, con e
 | CP-P14 | Publicar con noticias dañadas guardadas | Con los datos del caso anterior, publicar una noticia válida | La noticia aparece (12 tarjetas), el aviso de 2 omitidas sigue visible y las noticias dañadas no se borran del navegador | Falló el 28/10 (al publicar se borraban las dañadas y el aviso desaparecía sin decir nada); corregido en T-13 y Pasó al repetirlo |
 | CP-P15 | Contenido guardado ilegible | Guardar en el navegador un texto que no es JSON, recargar y publicar una noticia | La página carga con un aviso y la noticia se publica (11 tarjetas) | Pasó |
 
-Resumen: 15 casos ejecutados. Los dos fallos (CP-P11 y CP-P14) se corrigieron en T-13 (ver IMP-003) y se volvieron a probar. Queda pendiente repetir la ejecución completa en T-14.
+Resumen: 15 casos ejecutados. Los dos fallos (CP-P11 y CP-P14) se corrigieron en T-13 (ver IMP-003) y se volvieron a probar. La ejecución completa se repitió en T-14 (30/10/2026) y todos los casos pasaron.
