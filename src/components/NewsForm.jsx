@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { guardarNoticia } from "../services/noticiasService.js";
 import {
   esFuenteValida,
@@ -13,8 +13,9 @@ import {
 // T-09 (terminado): al validar, la noticia se guarda con el servicio de noticias
 // y se muestra una confirmación o el error de almacenamiento.
 // T-10 (terminado): al guardar, avisa a App con onPublicada para que el listado se actualice.
-// T-16 (en proceso, HU-04): campo opcional de fuentes (hasta 5, con nombre y enlace). Las filas
+// T-16 (HU-04): campo opcional de fuentes (hasta 5, con nombre y enlace). Las filas
 // vacías se ignoran; si una fila tiene datos, se valida. La noticia se guarda con sus fuentes en T-17.
+// Al agregar una fuente el foco pasa a su nombre; al quitarla, a la siguiente fila o a "Agregar fuente".
 function hoy() {
   const d = new Date();
   const mes = String(d.getMonth() + 1).padStart(2, "0");
@@ -31,6 +32,8 @@ export default function NewsForm({ onPublicada }) {
   });
   const [fuentes, setFuentes] = useState([]); // [{ nombre, url }]
   const [errores, setErrores] = useState({});
+  const formRef = useRef(null);
+  const foco = useRef(null); // { fila: n } | "agregar" | null: a dónde mover el foco tras agregar o quitar
   const [resultado, setResultado] = useState(null); // { tipo: "ok" | "error", texto }
 
   function cambiar(e) {
@@ -43,14 +46,28 @@ export default function NewsForm({ onPublicada }) {
     setResultado(null);
   }
 
+  // Mueve el foco después de que React dibuje el cambio en la lista de fuentes.
+  useEffect(() => {
+    const destino = foco.current;
+    foco.current = null;
+    if (!destino || !formRef.current) return;
+    const el =
+      destino === "agregar"
+        ? formRef.current.querySelector("button.agregar")
+        : formRef.current.querySelector(`input[name="fuente-nombre-${destino.fila}"]`);
+    el?.focus();
+  }, [fuentes.length]);
+
   function agregarFuente() {
     if (fuentes.length < MAX_FUENTES) {
+      foco.current = { fila: fuentes.length };
       setFuentes([...fuentes, { nombre: "", url: "" }]);
       setResultado(null);
     }
   }
 
   function quitarFuente(i) {
+    foco.current = i < fuentes.length - 1 ? { fila: i } : "agregar";
     setFuentes(fuentes.filter((_, j) => j !== i));
     setResultado(null);
   }
@@ -114,7 +131,7 @@ export default function NewsForm({ onPublicada }) {
   }
 
   return (
-    <form className="formulario" onSubmit={enviar}>
+    <form className="formulario" onSubmit={enviar} ref={formRef}>
       <label>
         Título
         <input
@@ -205,7 +222,7 @@ export default function NewsForm({ onPublicada }) {
         ))}
         <button
           type="button"
-          className="secundario"
+          className="secundario agregar"
           onClick={agregarFuente}
           disabled={fuentes.length >= MAX_FUENTES}
         >
