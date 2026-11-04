@@ -14,7 +14,7 @@ import {
 // y se muestra una confirmación o el error de almacenamiento.
 // T-10 (terminado): al guardar, avisa a App con onPublicada para que el listado se actualice.
 // T-16 (HU-04): campo opcional de fuentes (hasta 5, con nombre y enlace). Las filas
-// vacías se ignoran; si una fila tiene datos, se valida. La noticia se guarda con sus fuentes en T-17.
+// vacías se ignoran; si una fila tiene datos, se valida. El servicio guarda la noticia con sus fuentes (T-17).
 // Al agregar una fuente el foco pasa a su nombre; al quitarla, a la siguiente fila o a "Agregar fuente".
 function hoy() {
   const d = new Date();

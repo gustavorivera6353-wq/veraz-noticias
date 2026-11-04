@@ -3,6 +3,7 @@
 // reemplazará por los datos reales del periodista cuando lleguen.
 // Las vistas no importan el JSON directamente: solo llaman a este servicio.
 import noticiasPrueba from "../data/noticias.json";
+import { normalizarFuentes } from "./fuentes.js";
 
 export function obtenerNoticias() {
   // T-10 (terminado): incluye las noticias publicadas desde el formulario.
@@ -78,12 +79,16 @@ function leerCrudas() {
 export function guardarNoticia(datos) {
   const guardadas = leerCrudas();
   const id = Date.now(); // id único suficiente para el almacenamiento temporal
+  // T-17 (HU-04): las fuentes se guardan con la noticia. Solo se conservan las válidas
+  // (nombre y enlace http o https, hasta 5); si no hay ninguna, la noticia queda sin ese campo.
+  const fuentes = normalizarFuentes(datos.fuentes);
   const noticia = {
     id,
     titulo: datos.titulo.trim(),
     autor: datos.autor.trim(),
     fecha: datos.fecha,
     contenido: datos.contenido.trim(),
+    ...(fuentes.length > 0 ? { fuentes } : {}),
   };
   try {
     localStorage.setItem(CLAVE, JSON.stringify([...guardadas, noticia]));
