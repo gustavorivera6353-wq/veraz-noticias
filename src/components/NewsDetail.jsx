@@ -9,6 +9,8 @@ import { normalizarFuentes } from "../services/fuentes.js";
 // buscarlo.
 // T-18 (HU-04): si la noticia tiene fuentes, se muestran al final como una lista de enlaces
 // que se abren en otra pestaña. Solo se muestran las fuentes válidas.
+// T-19 (HU-04): cuando la noticia no tiene fuentes (o todas las guardadas están dañadas) se
+// muestra el mensaje "Esta noticia no tiene fuentes registradas." en lugar de la lista.
 export default function NewsDetail({ noticia, onCerrar }) {
   const detalleRef = useRef(null);
   useEffect(() => {
@@ -42,7 +44,9 @@ export default function NewsDetail({ noticia, onCerrar }) {
         {noticia.autor} · {fecha}
       </p>
       <p>{noticia.contenido}</p>
-      {fuentes.length > 0 && (
+      {fuentes.length === 0 ? (
+        <p className="sin-fuentes">Esta noticia no tiene fuentes registradas.</p>
+      ) : (
         <section className="fuentes-noticia" aria-label="Fuentes de la noticia">
           <h4>Fuentes</h4>
           <ul>
